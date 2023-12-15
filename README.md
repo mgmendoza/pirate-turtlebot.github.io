@@ -1,2 +1,3 @@
-# Pirate Turtlebot Treasure Hunt: pirate-turtlebot.github.io
+# Pirate Bot Treasure Hunt Project
 Website to the [C206 project](https://mgmendoza.github.io/pirate-turtlebot.github.io/) 
+Github Repository [here](https://github.com/mgmendoza/FinalProjectC206).
