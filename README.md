@@ -1,7 +1,2 @@
-# pirate-turtlebot.github.io
-Website of the C206 project 
-Authors:
-- Maria Gabriela Mendoza
-- Mark Pulsilik
-- Rohan
-- Vardhan
+# Pirate Turtlebot Treasure Hunt: pirate-turtlebot.github.io
+Website to the [C206 project]() 
