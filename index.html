@@ -1,41 +1,373 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Pirate Turtlebot</title>
+<title>Pirate Bot Project</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #a8a6a6a1;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
 </head>
-<div class="navpane">
-    <div class="links"><a href="index.html">Home</a></div>
-    <div class="links"><a href="overview.html">Overview</a></div>
-    <div class="links"><a href="videos.html">Videos</a></div>
-    <div class="links"><a href="team.html">Team</a></div>
-</div> 
-<body>
-    <div class="body">
-        <!-- <hr> -->
-        <div class="img"><img src="images/addpic.jpg" alt="Turtlebot" style="max-width: 700px;" width="80%"></div>
+<body class="w3-white">
 
-        <div class="section_header">
-            <h1 class="section"><span class="line" id="intro">Introduction</span></h1>
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="images/turtlebot_pirate.png" style="width:100%">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#design" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+    <i class="fa fa-gears w3-xxlarge"></i>
+    <p>DESIGN</p>
+  </a>
+  <a href="#details" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+    <i class="fa fa-code w3-xxlarge"></i>
+    <p>DETAILS</p>
+  </a>
+  <a href="#results" class="w3-bar-item w3-button w3-padding-large w3-hover-white">
+    <i class="fa fa-film w3-xxlarge"></i>
+    <p>RESULTS</p>
+  </a>
+</nav>
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+  <div class="w3-bar w3-white w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
+    <a href="#design" class="w3-bar-item w3-button" style="width:25% !important"><Datag>DESIGN</Datag></a>
+    <a href="#details" class="w3-bar-item w3-button" style="width:25% !important">IMPLEMENTATION</a>
+    <a href="#results" class="w3-bar-item w3-button" style="width:25% !important">VIDEOS</a>
+  </div>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-white" id="home">
+    <h1 class="w3-jumbo"><span class="w3-hide-small">Pirate Bot</span> Treasure Hunt</h1>
+    <p class="w3-wide">A project created for the final assignment of EECS C206: 
+        Introduction to Robotics course at UC Berkeley.</p>
+    <img src="images/pirate_island.png" alt="boy" class="w3-image" width="992" height="1108">
+  </header>
+
+  <!-- Overview Section -->
+  <div class="w3-content w3-justify w3-text-grey w3-padding-64">
+    <h2 class="w3-text-dark-grey">Overview</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <p>In this project we combine different components of robotics: sensing, planning, and navigation.
+        The goal is to teach a turtlebot to find an object inside an environment. The environment and the location
+        of the object to find will be unknown to the turtlebot. The locations of the obstacles will also vary every
+        time we command the turtlebot to find the object. The turtlebot should be able to navigate the environment
+        and avoid obstacles to find the object of interest. Once the turtle has found the object, it will stop and send
+        a message indicating it has completed the task.
+    </p>
+    <h3 class="w3-padding-16 w3-text-dark-grey">Introduction</h3>
+    <h4>Project Goal: </h4>
+    <p>
+        Get the Turtlebot to find an object in an unknown environment. 
+        The Turtlebot should explore the environment and avoid obstacles to find the object of interest. Once the turtle has found the object, it will stop and send a message indicating it has completed the task.
+    </p>
+    <h4>Why is it interesting? </h4>
+    <p class="w3-wide">
+        <ul>
+            <li>Integrates different components of robotics: sensing, planning, and control</li>
+            <li>Software-to-hardware integration</li>
+            <li>Autonomy</li>
+            <li>Use of-the-shelf open source components</li>
+        </ul>
+    </p>       
+    <h4>What interesting problems did we need solve to make our solution work?</h4>
+    <p class="w3-wide">
+    <ul>
+        <li>ROS Architecture and integration</li>
+        <li>Customizing existing packages, Debugging</li>
+        <li>Autonomy and collision avoidance</li>
+        <li>Robust computer vision</li>
+        <li>Exploration of unknown environment</li>
+    </ul>
+    </p>    
+    <h4>Real-world robotics applications</h4>
+    <p class="w3-wide">
+    <ul>
+        <li>Search and rescue applications</li>
+        <li>Surveillance </li>
+        <li>Robotic service applications: hospitals use assist robots get hospital supplies, hospital servicing, etc. </li>
+        </p> 
+    </ul>   
+    </p>
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
+    </div>
+
+    <!-- End of Overview Section -->   
+
+   <!-- Design Section -->   
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="design">
+    <h2 class="w3-text-dark-grey">Design Requirements</h2>
+    <p class="w3-wide">
+        <ol type="1">
+            
+            <li><b>Detection Capability:</b>
+              <ul style="list-style-type:square;"> 
+                <li>Ability to detect objects at a min distance of 2 feet.
+              </ul>
+            </li>
+            
+            <li><b>Autonomous Navigation and Exploration: </b>
+              <ul style="list-style-type:square;">  
+                <li>Navigate independently through the environment.</li>
+                <li>Systematically map the unknown area during exploration.</li>
+              </ul>
+            </li>
+
+            <li><b>Object Detection:</b>
+              <ul style="list-style-type:square;">  
+                <li>Upon detecting the object of interest, cease exploration and navigate towards the object. </li>
+                <li>If the object is not found after a complete exploration, activate a signal to indicate its absence.</li>
+              </ul>
+            </li>
+            
+            <li><b>Obstacle Management:</b>
+              <ul style="list-style-type:square;">  
+                <li>Efficiently navigate around obstacles, avoiding collisions with objects or walls.</li>
+              </ul>
+            </li>
+          
+          </ol>
+        
+        <b>Desired Outcome:</b>
+        The Turtlebot3 should effectively survey and map an uncharted environment, searching for a designated object. Its operation hinges on two critical conditions: it must either find the object and navigate to it, or complete the exploration of the entire area without finding the object. In the latter case, it should signal the unsuccessful search.
+        
+    </p>
+
+    <div class="w3-white">
+
+      </div><br>
+      <h2 class="w3-text-dark-grey">Design Choices & Formulation</h2>
+      
+      <div class="w3-row w3-center w3-padding-16 w3-section w3-dark-grey">
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">Autonomous navigation</span><br>
+          (<i>move_base, SLAM</i>)
         </div>
-        <div class="description">
-            <b>Project Description</b>
-            <br><br>
-             Pirate Turtlebot is a project created for the Final Project of EECS C206 course at UC Berkeley. In this project we combine different components of robotics: sensing, planning, and navigation.
-             The goal is to teach a turtlebot to find an object inside an environment. The environment and the location
-             of the object to find will be unknown to the turtlebot. The locations of the obstacles will also vary every
-             time we command the turtlebot to find the object. The turtlebot should be able to navigate the environment
-             and avoid obstacles to find the object of interest. Once the turtle has found the object, it will stop and send
-             a message indicating it has completed the task.
-            <br><br>
- 
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">Object Detection</span><br>
+          (<i>contour + hue analysis</i>)
         </div>
-    </div>  
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">Action control</span><br>
+          (<i>moveBaseAction</i>)
+        </div>
+        <div class="w3-quarter w3-section">
+          <span class="w3-xlarge">Exploration of unknown environment</span><br>
+          (<i>SLAM, OccupancyGrid, visualization of frontiers</i>)
+        </div>
+      </div>
+
+
+    <div class="w3-white">
+
+
+    <h2 class="w3-text-dark-grey">Design - Trade-Offs</h2>
+    <p class="w3-wide">
+        <ol type="1">
+            <li><b>Simplification of Environment:</b> Implemented walls and boundaries for a controlled setting.</li>
+            <li><b>Computer Vision (CV) Detection Trade-offs:</b> Balancing the scale - Lowering false positives may increase false negatives, and vice versa.</li>
+            <li><b>Functionality vs. Collision Parameters Testing:</b>  Assessing the project's performance while monitoring collision dynamics.</li>
+            <li><b>Managing Environment Complexity:</b> Navigating through the complexities of the environment for optimal results.</li>
+            
+        </ol>
+    </p>
     
+
+    <!-- End of Overview Section -->   
+
+
+    <!-- Implementation Section -->
+    <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="details">
+        <div class="w3-white">
+            <div class="w3-dark-grey" style="height:28px;width:85%"></div>
+        </div>
+
+            <h2 class="w3-padding-16 w3-text-dark-grey">Implementation </h2>
+            <h4> Hardware: </h4>
+            <b> Turtlebot3: </b>
+            <p class="w3-wide">
+                <ul>
+                    <li>2 main drive wheels DYNAMIXEL</li>
+                    <li>IMU (Gyroscope 3 axis, Accelerometer 3-axis)</li>
+                    <li>Power connectors and peripherals</li>
+                    <li>Single-board computer (Raspberry Pi running Linux, ROS Noetic, and OpenCR)</li>
+                    <li>Battery (Lithium polymer 11.1V 1800mAh / 19.98Wh </li>
+                    <li>Intel RealSense 3D Camera with integrated IMUs and SLAM</li>
+                </ul>
+            </p>       
+            <b>Environment:</b>
+            <p class="w3-wide">
+            <ul>
+                <li>Boxes</li>
+                <li>Styrofoam</li>
+                <li>Recycled wood from the Lab</li>
+                <li>Objects in the lab</li>
+            </ul>
+            </p>    
+    
+            <h4> Software Architecture: </h4>
+            <p class="w3-wide">
+            <li>Linux OS: Ubuntu 20.04 (included in lab’s computer)</li>
+            <br>
+            <b>ROS Packages in the project:</b>  
+                <ul>
+                    <li>turtlebot3_slam: To localize and build a map of the environment. This packages uses the ROS node "slam_gmapping" to create a 2D occupancy grid map using laser-based SLAM in simulation.</li>
+                    <li>turtlebot3_simulations: This node will be executed using any of the executable scripts. It will bring up and deploy the turtlebot3 model when running on simulation mode.</li>
+                    <li>turtlebot3_navigation: This package is used to navigate through the environment given a map of the world. The node communicates with the ROS Navigation stack and sends goals for the robot to reach. The ROS navigation stack uses Dijkstra's algorithm to find a path for the robot to reach goals while avoiding obstacle.</li>
+                    <li>explore_lite: This package is used to autonomously explore an unknown environment using greedy frontier-based exploration algorithm. Note we created a modified version of this package.</li>
+                    <li>Perception: algorithm to detect a specific predefined object and calculates it’s position in global frame</li>
+                </ul>
+            </p>  
+            <h4> Perception and Planning Algorithms </h4>
+            <p class="w3-wide">
+            <br>
+            <b>Perception:</b>  
+                <ul>
+                    <li>Image Processing: Images are enhanced for better analysis, converted to HSV.</li>
+                    <li>Object Detection: Specific objects are identified using algorithms that detect and isolate objects based on color thresholds.</li>
+                    <li>Contour Analysis: The contours of detected objects are analyzed for shape and size. For example, identifying a basketball by its circular contour.</li>
+                </ul>
+            </p>
+            <b>Planning:</b>  
+            <ul>
+                <li>Utilized turtlebot3_slam for dynamic 3D mapping and precision localization, integrating LIDAR and visual data..</li>
+                <li>Enhanced turtlebot3_navigation with CV-driven pathfinding and adaptive exploration algorithms in explore_lite for efficient, real-time navigation in complex environments.</li>
+            </ul>
+        </p>  
+    </div>
+
+</div>
+    <!-- End Implementation blocks  -->
+    
+
+  </div>
+
+
+  <!-- Results Section -->
+  <div class="w3-padding-64 w3-content w3-text-dark-grey" id="results">
+    <div class="w3-white">
+      <div class="w3-dark-grey" style="height:28px;width:70%"></div>
+  </div>
+    <h2 class="w3-text-dark-grey">Results</h2>
+    <hr style="width:200px" class="w3-opacity">
+    <h3> Videos </h3>
+
+       <!-- Grid for photos -->
+       <div class="w3-row-padding" style="margin:0 -16px">
+        <div class="w3-half">
+          <img src="images/wedding.jpg" style="width:100%">
+          <img src="images/rocks.jpg" style="width:100%">
+          <img src="images/sailboat.jpg" style="width:100%">
+        </div>
+  
+        <div class="w3-half">
+          <img src="images/underwater.jpg" style="width:100%">
+          <img src="images/chef.jpg" style="width:100%">
+          <img src="images/wedding.jpg" style="width:100%">
+          <img src="images/p6.jpg" style="width:100%">
+        </div>
+      <!-- End photo grid -->
+      <h3> Limitations, Difficulties and Future Scope</h3>
+      <b> Current Testing Status: </b>
+      <p class="w3-wide">
+          <ul>
+              <li>Environment Testing: Successfully only tested in small, controlled environments. 
+                However, simulations in larger environments show promising results.</li>
+              <li>Computer Vision Robustness: Current CV system shows limited robustness in varying light conditions.</li>
+              <li>Collision Detection Dependency: Relies on 'min_frontier_size' parameter within the SLAM package for effectiveness.</li>
+ 
+          </ul>
+      </p>    
+      <b> Potential Scope for Improvement (More Time): </b>
+      <p class="w3-wide">
+          <ul>
+              <li>Enhanced CV under Varying Lighting: Investigate and implement solutions to make computer vision robust against 
+                changes in lighting conditions.</li>
+              <li>Backtracking and Retrieval Mechanisms: Develop backtracking steps to improve retrieval efficiency and accuracy in complex environments.</li>
+          </ul>
+      </p>   
+      <h3> Conclusion </h3>
+      <p class="w3-wide">
+        <ul>
+            <li>Commands a Turtlebot3 model Burger to explore an environment and search for a predefined object using computer vision (CV).</li>
+            <li>The exploration module is relatively robust and works in simple and more complex scenarios.</li>
+        </ul>
+    </p>  
+      <h3> Additional Material </h3>
+      <p>You can find our well-documented code on GitHub with the following information:</p>
+      <p class="w3-wide">
+        <ul>
+            <li>Instructions for installation, building, and running the package.</li>
+            <li>Dockerfile to run in other Operating Systems Scripts to automatically set up and launch multiple ROS packages Source code.</li>
+        </ul>
+    </p>  
+      <div class="w3-white">
+        <h3> Check our Code 👇🏽</b><br></h3>
+        <button class="w3-button w3-purple w3-padding-large w3-hover-light-grey"><a href="https://github.com/mgmendoza/FinalProjectC206">Pirate Bot GitHub Repo</a></button>    
+    </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+      <!-- Team -->
+      <h3 class="w3-padding-24 w3-text-dark-grey">The team</h3>  
+      <img src="images/gaby.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+      <p><span class="w3-large w3-margin-right">Gaby Mendoza</span></p>
+      <p>Maria (Gaby) Mendoza is a first-year Mechanical Engineering PhD student interested in mechanisms for 
+      cooperation and coordination of multi-agent systems including Multi-Agent Reinforcement Learning (MARL). </p><br>
+      
+      <img src="images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+      <p><span class="w3-large w3-margin-right">Mark Pustilnik.</span></p>
+      <p>ME PhD Student.</p>
+
+      <img src="images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+      <p><span class="w3-large w3-margin-right">Vardhan.</span></p>
+      <p>EECS Student.</p>
+
+      <img src="images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+      <p><span class="w3-large w3-margin-right">Rohan.</span></p>
+      <p>EECS Student.</p>
+
+</div>
+
+
+    <!-- Footer -->
+  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+    <!--i class="fa fa-instagram w3-hover-opacity"></i-->
+    <!--i class="fa fa-linkedin w3-hover-opacity"></i-->
+    <p class="w3-medium">Created by <a href="https://github.com/mgmendoza" target="_blank" class="w3-hover-text-green">Gaby Mendoza</a> using W3.CSS template</p>
+  <!-- End footer -->
+  </footer>
+
+<!-- END PAGE CONTENT -->
+</div>
+
 </body>
-
-<footer class="footer">
-    Website created by <a class="footer" href="https://github.com/mgmendoza">Gaby Mendoza</a>
-</footer>
-
 </html>
