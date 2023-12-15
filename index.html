@@ -59,7 +59,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <h1 class="w3-jumbo"><span class="w3-hide-small">Pirate Bot</span> Treasure Hunt</h1>
     <p class="w3-wide">A project created for the final assignment of EECS C206: 
         Introduction to Robotics course at UC Berkeley.</p>
-    <img src="images/pirate_island.png" alt="boy" class="w3-image" width="992" height="1108">
+    <img src="images/pirate_island.png" alt="turtlebot in island" class="w3-image" width="992" height="1108">
   </header>
 
   <!-- Overview Section -->
@@ -213,16 +213,32 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                     <li>Battery (Lithium polymer 11.1V 1800mAh / 19.98Wh </li>
                     <li>Intel RealSense 3D Camera with integrated IMUs and SLAM</li>
                 </ul>
-            </p>       
+            </p>  
             <b>Environment:</b>
-            <p class="w3-wide">
-            <ul>
-                <li>Boxes</li>
-                <li>Styrofoam</li>
-                <li>Recycled wood from the Lab</li>
-                <li>Objects in the lab</li>
-            </ul>
-            </p>    
+
+
+                <p class="w3-wide">
+                    <ul>
+                        <li>Boxes</li>
+                        <li>Styrofoam</li>
+                        <li>Recycled wood from the Lab</li>
+                        <li>Objects in the lab</li>
+                    </ul>
+                    </p>
+            </div>
+ 
+         
+               <!-- Grid for photos -->
+               <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half">
+                  <img src="images/environment.png" style="width:100%">
+                </div>
+                <div class="w3-half">
+                    <img src="images/turtlebot3_hardware.png" style="width:70%">
+                  </div>
+          
+              <!-- End photo grid --> 
+            </div>
     
             <h4> Software Architecture: </h4>
             <p class="w3-wide">
@@ -230,11 +246,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
             <br>
             <b>ROS Packages in the project:</b>  
                 <ul>
-                    <li>turtlebot3_slam: To localize and build a map of the environment. This packages uses the ROS node "slam_gmapping" to create a 2D occupancy grid map using laser-based SLAM in simulation.</li>
-                    <li>turtlebot3_simulations: This node will be executed using any of the executable scripts. It will bring up and deploy the turtlebot3 model when running on simulation mode.</li>
-                    <li>turtlebot3_navigation: This package is used to navigate through the environment given a map of the world. The node communicates with the ROS Navigation stack and sends goals for the robot to reach. The ROS navigation stack uses Dijkstra's algorithm to find a path for the robot to reach goals while avoiding obstacle.</li>
-                    <li>explore_lite: This package is used to autonomously explore an unknown environment using greedy frontier-based exploration algorithm. Note we created a modified version of this package.</li>
-                    <li>Perception: algorithm to detect a specific predefined object and calculates it’s position in global frame</li>
+                    <li><b>turtlebot3_slam:</b> To localize and build a map of the environment. This packages uses the ROS node "slam_gmapping" to create a 2D occupancy grid map using laser-based SLAM in simulation.</li>
+                    <li><b>turtlebot3_simulations:</b> This node will be executed using any of the executable scripts. It will bring up and deploy the turtlebot3 model when running on simulation mode.</li>
+                    <li><b>turtlebot3_navigation:</b> This package is used to navigate through the environment given a map of the world. The node communicates with the ROS Navigation stack and sends goals for the robot to reach. The ROS navigation stack uses Dijkstra's algorithm to find a path for the robot to reach goals while avoiding obstacle.</li>
+                    <li><b>explore_lite:</b> This package is used to autonomously explore an unknown environment using greedy frontier-based exploration algorithm. Note we created a modified version of this package.</li>
+                    <li><b>Perception:</b> algorithm to detect a specific predefined object and calculates it’s position in global frame</li>
                 </ul>
             </p>  
             <h4> Perception and Planning Algorithms </h4>
@@ -252,8 +268,8 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
                 <li>Utilized turtlebot3_slam for dynamic 3D mapping and precision localization, integrating LIDAR and visual data..</li>
                 <li>Enhanced turtlebot3_navigation with CV-driven pathfinding and adaptive exploration algorithms in explore_lite for efficient, real-time navigation in complex environments.</li>
             </ul>
-        </p>  
-    </div>
+        </p> 
+        <img src="images/software_architecture.png" alt="software_architecture" class="w3-image" width="992" height="1108">
 
 </div>
     <!-- End Implementation blocks  -->
@@ -271,21 +287,18 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
     <hr style="width:200px" class="w3-opacity">
     <h3> Videos </h3>
 
-       <!-- Grid for photos -->
-       <div class="w3-row-padding" style="margin:0 -16px">
-        <div class="w3-half">
-          <img src="images/wedding.jpg" style="width:100%">
-          <img src="images/rocks.jpg" style="width:100%">
-          <img src="images/sailboat.jpg" style="width:100%">
-        </div>
-  
-        <div class="w3-half">
-          <img src="images/underwater.jpg" style="width:100%">
-          <img src="images/chef.jpg" style="width:100%">
-          <img src="images/wedding.jpg" style="width:100%">
-          <img src="images/p6.jpg" style="width:100%">
-        </div>
-      <!-- End photo grid -->
+       <!-- Videos -->
+       <video width="500" height="400" autoplay muted>
+        <source src="videos/IMG_8697.MOV" type="video/mp4">
+      </video>
+      <video width="500" height="400" autoplay muted>
+        <source src="videos/IMG_8699.MOV" type="video/mp4">
+      </video>
+      <video width="500" height="400" autoplay muted>
+        <source src="videos/IMG_8701.MOV" type="video/mp4">
+      </video>
+      <!-- End videos -->
+
       <h3> Limitations, Difficulties and Future Scope</h3>
       <b> Current Testing Status: </b>
       <p class="w3-wide">
