@@ -265,8 +265,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
             </p>
             <b>Planning:</b>  
             <ul>
-                <li>Utilized turtlebot3_slam for dynamic 3D mapping and precision localization, integrating LIDAR and visual data..</li>
-                <li>Enhanced turtlebot3_navigation with CV-driven pathfinding and adaptive exploration algorithms in explore_lite for efficient, real-time navigation in complex environments.</li>
+                <li>We used the explore_lite package and modified this package to create additional goals while exploring the unknown environment.</li>
+                <li>This node uses different packages like costmap_2d, move_base, and actionlib client/server nodes (explore_client and explore_server). </li>
+                <li>This node was extended from the original frontier search algorithm to include the object detection node and command the turtlebot to navigate to the object of interest as a primary goal</li>
+                <li>The frontier_exploration nodes takes the OccupancyGrid and finds frontier points (like walls) and turns them into exploration goals</li>
+                <li>For more information about Frontier-Based Exploration algorithm, you can read this <a href="https://r.search.yahoo.com/_ylt=AwrOoyf583xli50Ph05XNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA3Nj/RV=2/RE=1702716537/RO=10/RU=https%3a%2f%2farxiv.org%2fpdf%2f1806.03581%23%3a~%3atext%3dThe%2520frontier%2520detection%2520algorithm%2520is%2520based%2520on%2520Breadth-First%2cthe%2520frontier%2520points%2520to%2520obtain%2520the%2520final%2520frontiers./RK=2/RS=yAaxNiA7ulpLuEZpzO75NV0tUFM-">publication.</a></li>
             </ul>
         </p> 
         <img src="images/software_architecture.png" alt="software_architecture" class="w3-image" width="992" height="1108">
@@ -342,13 +345,6 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
       </div>
 
-    </div>
-
-
-
-
-
-
       <!-- Team -->
       <h3 class="w3-padding-24 w3-text-dark-grey">The team</h3>  
       <img src="images/gaby.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
@@ -367,6 +363,10 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <img src="images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
       <p><span class="w3-large w3-margin-right">Rohan.</span></p>
       <p>EECS Student.</p>
+
+    </div>
+
+
 
 </div>
 
